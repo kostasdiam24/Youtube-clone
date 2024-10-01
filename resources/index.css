@@ -1,0 +1,265 @@
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #181818; /* YouTube's dark background */
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Header Styling */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #181818;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column; /* Arrange topNavbars vertically */
+}
+
+/* Top Navbar Section */
+#topNavbars {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Upper Navigation Bar */
+#upNav {
+    display: flex;
+    justify-content: space-between; /* Distribute space between items */
+    align-items: center;
+    width: 100%;
+}
+
+/* Logo Styling */
+#logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Search Bar Styling */
+#search {
+    flex: 1; /* Take up remaining space between logo and notifications */
+    display: flex;
+    justify-content: center; /* Center the search bar */
+    align-items: center;
+    margin: 0 20px;
+}
+
+#search input {
+    width: 60%; /* Adjust width as needed */
+    padding: 8px 12px;
+    border: none;
+    border-radius: 2px 0 0 2px;
+    outline: none;
+}
+
+#search button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #303030;
+    color: white;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+}
+
+#search button:hover {
+    background-color: #555;
+}
+
+/* Notification, Upload, and Channel Icons */
+#notifUploadChannel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Downbar Styling */
+#downbar {
+    display: flex;
+    list-style: none;
+    padding: 10px 0;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    justify-content: center; /* Center the list items */
+    gap: 20px;
+    margin: 0; /* Remove default margin */
+}
+
+#downbar li {
+    padding: 8px 16px;
+    background-color: #303030;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap; /* Prevent text from wrapping */
+    flex: 0 0 auto; /* Prevent items from shrinking */
+}
+
+#downbar li:hover {
+    background-color: #555;
+}
+
+/* Sidebar Styling */
+#sideNavbar {
+    position: fixed;
+    top: 135px; /* Adjust based on total header height */
+    left: 0;
+    width: 200px;
+    padding: 20px 0;
+    border-right: 1px solid #303030;
+    height: calc(100vh - 100px);
+    background-color: #181818;
+    overflow-y: auto;
+}
+
+.sideNavPairs {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.sideNavPairs:hover {
+    background-color: #303030;
+}
+
+.sideNavPairs p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Main Content Adjustments */
+main {
+    margin-top: 100px; /* Total header height */
+    margin-left: 240px; /* Sidebar width */
+    padding: 20px;
+    background-color: #181818;
+    min-height: 100vh;
+}
+
+/* Video Grid Styling */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+/* Video Card Styling */
+.video-card {
+    background-color: #282828;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.video-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Thumbnail Styling */
+.thumbnail-container {
+    position: relative;
+}
+
+.thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-size: 12px;
+}
+
+/* Video Info Styling */
+.video-info {
+    display: flex;
+    padding: 12px;
+    gap: 12px;
+}
+
+.profile-pic {
+    width: 36px;
+    height: 36px;
+    background-color: #555;
+    border-radius: 50%;
+}
+
+.video-details {
+    flex: 1;
+}
+
+.video-title {
+    font-size: 14px;
+    margin: 0 0 6px 0;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.channel-name,
+.views-time {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    #sideNavbar {
+        width: 200px;
+    }
+
+    main {
+        margin-left: 200px;
+    }
+
+    .video-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    #sideNavbar {
+        display: none;
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    .video-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    #search input {
+        width: 100%;
+    }
+
+    .video-title {
+        font-size: 13px;
+    }
+
+    .channel-name,
+    .views-time {
+        font-size: 11px;
+    }
+}
